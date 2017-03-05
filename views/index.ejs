@@ -2,18 +2,18 @@
 <html>
 
 	<head>
-		<title>Giffinate</title>
-	</head>
-	<link type="text/css" href="stylesheets/style.css" />
+		<title>Gifenger</title>
 
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	</head>
+	
 	<body>
 		<div>
 
-			<!-- GIFF CONTENT -->
+			<!-- GIF CONTENT -->
 			<div>
-				<div>
-					<video autoplay></video>			
-				</div>
+				<video id="vid" class="video-stream size" autoplay></video>
+				<div class="gif-display size hidden"></div>
 			</div>
 
 
@@ -21,15 +21,13 @@
 
 			<!-- USER INTERACTIONS -->
 			<div>
-				<form class="options">
-						<button>Giffinate!</button>
+				<label for="text">Text:</label>
+				<input name="text" id="text" type="text" placeholder="Add text here...">
 
-						<label>Text:</label>
-						<input type="text" name="text">
-						<button>Edit</button>
-						<button>Share</button>
+				<button id="create-gif-btn">Giffinate!</button>
 
-				</form>
+				<button id="edit-btn">Edit</button>
+				<button id="share-btn">Share</button>
 			</div>
 		
 
@@ -38,6 +36,13 @@
 
 
 		</div>
+
+		<script src="javascripts/dependencies/gifshot.js"></script>
+    <script src="javascripts/dependencies/prism.min.js"></script>
+    <script src="javascripts/dependencies/esprima.min.js"></script>
+    <script src="javascripts/dependencies/escodegen.min.js"></script>
+    <script src="javascripts/dependencies/lodash.min.js"></script>
+    <script src="javascripts/dependencies/classList.js"></script>
 	  <script src="javascripts/main.js"></script>
 	</body>
 </html>
