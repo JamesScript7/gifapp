@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 	<head>
-	<meta charset="utf-8">
+		<meta charset="utf-8">
 		<title>Gifenger</title>
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" type="text/css" href="stylesheets/dependencies/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
 	</head>
 	
 	<body>
 		<div>
-
 			<!-- GIF CONTENT -->
 			<div>
 				<video id="vid" class="video-stream size" autoplay></video>
-				<div class="gif-display size hidden"></div>
 			</div>
-
+			
 			<div id="bar">
-				<progress max="1" value="0" class="progress-bar"></progress>
+				<progress class="gifshot-progress-bar hidden" max="1" value="0"></progress>
 			</div>
 
 
@@ -32,12 +33,18 @@
 				<button id="create-gif-btn">Record GIF</button>
 			</div>
 
+			<br />
+
+			<div>
+				<ul class="gif-display size hidden"></ul>
+			</div>
+
 			<div>
 				<button id="edit-btn">Edit</button>
 				<button id="share-btn">Share</button>
 			</div>
+			
 		
-
 
 
 

@@ -1,21 +1,7 @@
-'use strict';
-
-// Access and display the video stream
-
-navigator.mediaDevices.getUserMedia({
-	video: true
-}).then(function success(stream) {
-	var video = document.querySelector('video');
-	video.src = window.URL.createObjectURL(stream) || stream;
-}).catch(function error(err) {
-	console.error("Error:", err);
-});
-
-// GIF settings
-
 (function(window, document) {
 	var
-		// gifWidth = document.querySelector('.video-stream').clientWidth,
+		// var gifWidth = document.querySelector('.video-stream').clientWidth;
+		// var gifHeight = document.querySelector('.video-stream').clientHeight;
 		text = document.getElementById('text'),
 		getSelectedOptions = function() {
 			return {
@@ -23,36 +9,35 @@ navigator.mediaDevices.getUserMedia({
 			  'gifHeight': '225',
 			  'numFrames': '16',
 			  'text': text.value,
-			  'fontSize': '24px',
-			  'fontFamily': 'Calibri',
+			  'fontSize': '32px',
+			  'fontFamily': 'Arial',
 			  'fontColor': '#FFFFFF'
 			}
 		},
-	  passedOptions,
-	  updateCodeBlock = function(obj) {
-	  	obj = obj || {};
-	  	var
-	  		targetElem = obj.targetElem,
-	  		selectedOptions = getSelectedOptions(),
-	  		options = (function() {
-	  			var obj = {};
-	  			_.each(selectedOptions, function(val, key) {
-	  				if(val) {
-	  					obj[key] = val;
-	  				}
-	  			});
-	  			return obj;
-	  		}())
-	  },
 	// Swapping the video stream with the recorded GIF
 		createGif = document.getElementById('create-gif-btn'),
 	  gifDisplay = document.querySelector('.gif-display'),
 	  videoStream = document.querySelector('.video-stream'),
 	  progressBar = document.querySelector('progress'),
-	  bindEvents = function() {
+	  passedOptions;
+
+    navigator.mediaDevices.getUserMedia({
+      video: {
+         width: getSelectedOptions()['gifWidth'],
+          height: getSelectedOptions()['gifHeight']
+      	}
+    }).then(function success(stream) {
+      var video = videoStream;
+      video.src = window.URL.createObjectURL(stream) || stream;
+    }).catch(function error(err) {
+      console.error("Error:", err);
+    });
+
+	  var bindEvents = function() {
 			createGif.addEventListener('click', function(e) {
 				passedOptions = _.merge(_.clone(getSelectedOptions()), {
-					'progressCallBack': function(captureProgress) {
+					'progressCallback': function(captureProgress) {
+						progressBar.classList.remove('hidden');
 						progressBar.value = captureProgress;
 
 					}
@@ -64,7 +49,7 @@ navigator.mediaDevices.getUserMedia({
 							animatedImage = document.createElement('img');
 							animatedImage.src = image;
 
-							videoStream.classList.add('hidden');
+							progressBar.classList.add('hidden');
 
 							gifDisplay.appendChild(animatedImage);
 							gifDisplay.classList.remove('hidden');
@@ -76,28 +61,10 @@ navigator.mediaDevices.getUserMedia({
 				});
 			}, false);
 
-			document.addEventListener('change', function(e) {
-        updateCodeBlock({
-          targetElem: e.target
-        });
-        // console.log(getSelectedOptions({})["progressCallBack"]);
-        console.log(updateCodeBlock);
-      });
-
-      document.addEventListener('keyup', function(e) {
-        updateCodeBlock({
-          targetElem: e.target
-        });
-      });
-
 	};
 
 	bindEvents();
-	updateCodeBlock();
 }(window, document));
-
-
-
 
 
 
