@@ -280,7 +280,7 @@ error = function (utils) {
 }(utils);
 defaultOptions = {
   'sampleInterval': 10,
-  'numWorkers': 2,
+  'numWorkers': 4,
   'gifWidth': 200,
   'gifHeight': 200,
   'interval': 0.1,
@@ -301,6 +301,8 @@ defaultOptions = {
   'textBaseline': 'bottom',
   'textXCoordinate': null,
   'textYCoordinate': null,
+  'addFilter': function (res) {
+  },
   'progressCallback': function (captureProgress) {
   },
   'completeCallback': function () {
@@ -1300,6 +1302,18 @@ screenShot = {
           var data;
           var rgba;
           var isBlackFrame;
+
+          // Instagram Filter
+          // var contxt = canvas.getContext('2d');
+          // var grad = contxt.createLinearGradient(0, 15, 0, 200);
+          // grad.addColorStop(0, 'rgba(241, 246, 0, 0.25)');
+          // grad.addColorStop(1, 'rgba(252, 0, 0, 0.25)');
+          // contxt.fillStyle = grad;
+          // contxt.fillRect(0, 0, gifWidth, gifHeight);
+
+          // VHS Filter
+          var contxt = canvas.getContext('2d');
+
           if (saveRenderingContexts) {
             renderingContextsToSave.push(context.getImageData(0, 0, gifWidth, gifHeight));
           }
@@ -1308,7 +1322,11 @@ screenShot = {
             context.fillStyle = fontColor;
             context.textAlign = textAlign;
             context.textBaseline = textBaseline;
-            context.fillText(text, textXCoordinate, textYCoordinate);              
+            context.fillText(text, textXCoordinate, textYCoordinate);
+
+            //something I added to help view the text more clearly
+            context.lineWidth = "2";
+            context.strokeText(text, textXCoordinate, textYCoordinate);              
           }
           imageData = context.getImageData(0, 0, gifWidth, gifHeight);
           data = imageData.data;

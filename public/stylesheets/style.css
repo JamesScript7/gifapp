@@ -12,7 +12,20 @@ a {
   color: #00B7FF;
 }
 
-#bar {
+.insta-filt {
+  filter: sepia(100%);
+}
+
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+
+.sepia-filter {
+  filter: sepia(100%);
 }
 
 progress {
