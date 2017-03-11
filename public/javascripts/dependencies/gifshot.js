@@ -291,7 +291,7 @@ defaultOptions = {
   'webcamVideoElement': null,
   'cameraStream': null,
   'text': '',
-  'fontWeight': 'normal',
+  'fontWeight': 'bold',
   'fontSize': '16px',
   'minFontSize': '10px',
   'resizeFont': false,
@@ -1303,16 +1303,36 @@ screenShot = {
           var rgba;
           var isBlackFrame;
 
+          // Filter Zone
+          var contxt = canvas.getContext('2d');
+
           // Instagram Filter
-          // var contxt = canvas.getContext('2d');
-          // var grad = contxt.createLinearGradient(0, 15, 0, 200);
-          // grad.addColorStop(0, 'rgba(241, 246, 0, 0.25)');
-          // grad.addColorStop(1, 'rgba(252, 0, 0, 0.25)');
-          // contxt.fillStyle = grad;
+          // var radGrad = contxt.createRadialGradient(120, 50, 10, 238, 20, 300);
+          // radGrad.addColorStop(0, 'rgba(241, 246, 0, 0.25)');
+          // radGrad.addColorStop(0.2, 'rgba(255,165,0, 0.25)');
+          // radGrad.addColorStop(1, 'rgba(252, 0, 0, 0.25)');
+          // contxt.fillStyle = radGrad;
           // contxt.fillRect(0, 0, gifWidth, gifHeight);
 
           // VHS Filter
-          var contxt = canvas.getContext('2d');
+          contxt.globalAlpha = 0.4;
+          var ctxRed = canvas.getContext('2d');
+          var ctxCyan = canvas.getContext('2d');
+
+          contxt.font = "14px Arial";
+          contxt.fillStyle = fontColor;
+          contxt.fillText("PLAY", gifWidth/1.2, gifHeight/9);
+
+          contxt.fillText("PM 3:59", gifWidth/10, gifHeight/1.2);
+          contxt.fillText("MAR. 10 1986", gifWidth/10, gifHeight/1.1);
+
+          ctxRed.fillStyle = 'rgba(255, 5, 7, 0.2)';
+          ctxRed.fillRect(2, 3, gifWidth, gifHeight);
+
+          ctxCyan.fillStyle = 'rgba(4, 252, 254, 0.2)';
+          ctxCyan.fillRect(-3, -2, gifWidth, gifHeight);
+
+          // contxt.rect(0, 0, gifWidth, gifHeight);
 
           if (saveRenderingContexts) {
             renderingContextsToSave.push(context.getImageData(0, 0, gifWidth, gifHeight));
@@ -1323,7 +1343,6 @@ screenShot = {
             context.textAlign = textAlign;
             context.textBaseline = textBaseline;
             context.fillText(text, textXCoordinate, textYCoordinate);
-
             //something I added to help view the text more clearly
             context.lineWidth = "2";
             context.strokeText(text, textXCoordinate, textYCoordinate);              
