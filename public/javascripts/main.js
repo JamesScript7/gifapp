@@ -1,6 +1,7 @@
 (function(window, document) {
 	var
 		text = document.getElementById('text'),
+
 		getSelectedOptions = function() {
 			return {
 				'gifWidth': '300',
@@ -11,7 +12,7 @@
 			  'fontFamily': 'Arial',
 			  'fontColor': '#FFFFFF',
 			  'instaFilter': false,
-			  'vhsFilter': true
+			  'vhsFilter': false
 			}
 		},
 	// Video stream and GIF processing
@@ -20,9 +21,6 @@
 	  videoStream = document.querySelector('.video-stream'),
 	  progressBar = document.querySelector('progress'),
 	  passedOptions;
-
-	  console.log(getSelectedOptions()['instaFilter']);
-	  console.log(getSelectedOptions()['vhsFilter']);
 
     navigator.mediaDevices.getUserMedia({
       video: {
@@ -35,7 +33,6 @@
     }).catch(function error(err) {
       console.error("Error:", err);
     });
-
 	  var bindEvents = function() {
 			createGif.addEventListener('click', function(e) {
 				passedOptions = _.merge(_.clone(getSelectedOptions()), {
@@ -74,15 +71,60 @@
 
 		};
 
-		// shareButton.addEventListener('click', function(){
-		// 	$.post('/gif', function(response) {
-
-		// 	})
-		// })
-
-		// removeButton.addEventListener('click', function() {
-			
-		// })
-
 	bindEvents();
+
+	$('[type=radio]').change(function(e) {
+		var select = e.target.id;
+
+		switch (select) {
+			case 'insta':
+				getSelectedOptions = function() {
+					return {
+						'gifWidth': '300',
+					  'gifHeight': '225',
+					  'numFrames': '24',
+					  'text': text.value,
+					  'fontSize': '24px',
+					  'fontFamily': 'Arial',
+					  'fontColor': '#FFFFFF',
+					  'instaFilter': true,
+					  'vhsFilter': false
+					}
+				}
+				break;
+			case 'vhs':
+				getSelectedOptions = function() {
+					return {
+						'gifWidth': '300',
+					  'gifHeight': '225',
+					  'numFrames': '24',
+					  'text': text.value,
+					  'fontSize': '24px',
+					  'fontFamily': 'Arial',
+					  'fontColor': '#FFFFFF',
+					  'instaFilter': false,
+					  'vhsFilter': true
+					}
+				}
+				break;
+			default:
+				getSelectedOptions = function() {
+						return {
+							'gifWidth': '300',
+						  'gifHeight': '225',
+						  'numFrames': '24',
+						  'text': text.value,
+						  'fontSize': '24px',
+						  'fontFamily': 'Arial',
+						  'fontColor': '#FFFFFF',
+						  'instaFilter': false,
+						  'vhsFilter': false
+						}
+					}
+		}
+		
+	});
+
+
+
 }(window, document));

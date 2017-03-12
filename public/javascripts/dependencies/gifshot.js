@@ -310,8 +310,8 @@ defaultOptions = {
   'saveRenderingContexts': false,
   'savedRenderingContexts': [],
   'crossOrigin': 'Anonymous',
-  'instaFilter': null,
-  'vhsFilter': null
+  'instaFilter': false,
+  'vhsFilter': false
 };
 isSupported = function () {
   return error.isValid();
@@ -1311,9 +1311,12 @@ screenShot = {
           // Instagram Filter
           if (options.instaFilter === true) {
             var radGrad = contxt.createRadialGradient(120, 50, 10, 238, 20, 300);
-            radGrad.addColorStop(0, 'rgba(241, 246, 0, 0.25)');
+            // Yellow
+            radGrad.addColorStop(0, 'rgba(241, 246, 0, 0.3)');
+            // Orange
             radGrad.addColorStop(0.2, 'rgba(255,165,0, 0.25)');
-            radGrad.addColorStop(1, 'rgba(252, 0, 0, 0.25)');
+            // Red
+            radGrad.addColorStop(1, 'rgba(252, 0, 0, 0.4)');
             contxt.fillStyle = radGrad;
             contxt.fillRect(0, 0, gifWidth, gifHeight);
           }
@@ -1324,6 +1327,7 @@ screenShot = {
             contxt.globalCompositeOperation = 'xor';
             contxt.font = "16px Arial";
 
+            // Use For loop to increment and modulo to alternate?
             var grad = contxt.createLinearGradient(0, 0, 0, gifHeight);
             grad.addColorStop(0, 'rgba(0, 0, 0, .1)');
             grad.addColorStop(0.05, 'rgba(254, 255, 253, .1)');
