@@ -70,10 +70,14 @@
 		};
 
 		// shareButton.addEventListener('click', function(){
-		// 		$.post('/gif', function(response) {
+		// 	$.post('/gif', function(response) {
 
-		// 		})
 		// 	})
+		// })
+
+		// removeButton.addEventListener('click', function() {
+			
+		// })
 
 	bindEvents();
 }(window, document));

@@ -1345,6 +1345,25 @@ screenShot = {
           contxt.fillRect(0, 0, gifWidth, gifHeight);
 
           // TEXT TEMPLATE
+
+          var date = new Date();
+          var dateArr = date.toString();
+          var dateList = dateArr.split(" ");
+          
+          var time = {
+            "amPm": "AM",
+            "month": dateList[1].toUpperCase(),
+            "day": dateList[2],
+            "hours": date.getHours(),
+            "minutes": dateList[4].split(":")[1],
+            "seconds": dateList[4].split(":")[2]
+          };
+
+          if (time.hours > 12) {
+            time.hours -= 12
+            time.amPm = "PM"
+          }
+
           // RED
           contxt.fillStyle = 'rgba(255, 5, 7, 0.7)';
           contxt.fillText("PLAY", ((gifWidth/1.2) - 3), gifHeight/9);
@@ -1357,23 +1376,23 @@ screenShot = {
 
           // RED
           contxt.fillStyle = 'rgba(255, 5, 7, 0.7)';
-          contxt.fillText("PM        10:40", ((gifWidth/5.5) - 3), ((gifHeight/1.3) + 1));
+          contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, ((gifWidth/5.5) - 3), ((gifHeight/1.3) + 1));
           // CYAN
           contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
-          contxt.fillText("PM        10:40", ((gifWidth/5.5) + 3), ((gifHeight/1.3) - 1));
+          contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, ((gifWidth/5.5) + 3), ((gifHeight/1.3) - 1));
           //WHITE
           contxt.fillStyle = fontColor;
-          contxt.fillText("PM        10:40", gifWidth/5.5, gifHeight/1.3);
+          contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, gifWidth/5.5, gifHeight/1.3);
 
           // RED
           contxt.fillStyle = 'rgba(255, 5, 7, 0.7)'
-          contxt.fillText("MAR. 11 1986", ((gifWidth/5.5) - 3), ((gifHeight/1.2) + 1));
+          contxt.fillText(time.month + ". " + time.day + " 1986", ((gifWidth/5.5) - 3), ((gifHeight/1.2) + 1));
           // CYAN
           contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
-          contxt.fillText("MAR. 11 1986", ((gifWidth/5.5) + 3), ((gifHeight/1.2) - 1));
+          contxt.fillText(time.month + ". " + time.day + " 1986", ((gifWidth/5.5) + 3), ((gifHeight/1.2) - 1));
           // WHITE
           contxt.fillStyle = fontColor;
-          contxt.fillText("MAR. 11 1986", gifWidth/5.5, gifHeight/1.2);
+          contxt.fillText(time.month + ". " + time.day + " 1986", gifWidth/5.5, gifHeight/1.2);
 
           // Screen Shift
           // RED
@@ -1387,7 +1406,6 @@ screenShot = {
           contxt.fillRect(0, 0, 5, gifHeight);
 
           contxt.rect(0, 0, gifWidth, gifHeight);
-          
 
           if (saveRenderingContexts) {
             renderingContextsToSave.push(context.getImageData(0, 0, gifWidth, gifHeight));
