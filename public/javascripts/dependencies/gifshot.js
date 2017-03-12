@@ -1315,24 +1315,79 @@ screenShot = {
           // contxt.fillRect(0, 0, gifWidth, gifHeight);
 
           // VHS Filter
-          contxt.globalAlpha = 0.4;
-          var ctxRed = canvas.getContext('2d');
-          var ctxCyan = canvas.getContext('2d');
+          contxt.globalAlpha = 0.6;
+          contxt.globalCompositeOperation = 'xor';
+          contxt.font = "16px Arial";
 
-          contxt.font = "14px Arial";
+          var grad = contxt.createLinearGradient(0, 0, 0, gifHeight);
+          grad.addColorStop(0, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(0.05, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.1, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(.15, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.2, 'rgba(0, 0, 0,.1)');
+          grad.addColorStop(.25, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.3, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(.35, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.4, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(.45, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.5, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(.55, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.6, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(.65, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.7, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(.75, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.8, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(.85, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(.9, 'rgba(0, 0, 0, .1)');
+          grad.addColorStop(.95, 'rgba(254, 255, 253, .1)');
+          grad.addColorStop(1, 'rgba(0, 0, 0, .1)');
+          contxt.fillStyle = grad;
+          contxt.fillRect(0, 0, gifWidth, gifHeight);
+
+          // TEXT TEMPLATE
+          // RED
+          contxt.fillStyle = 'rgba(255, 5, 7, 0.7)';
+          contxt.fillText("PLAY", ((gifWidth/1.2) - 3), gifHeight/9);
+          // CYAN
+          contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
+          contxt.fillText("PLAY", ((gifWidth/1.2) + 3), ((gifHeight/9) - 1));
+          // WHITE
           contxt.fillStyle = fontColor;
           contxt.fillText("PLAY", gifWidth/1.2, gifHeight/9);
 
-          contxt.fillText("PM 3:59", gifWidth/10, gifHeight/1.2);
-          contxt.fillText("MAR. 10 1986", gifWidth/10, gifHeight/1.1);
+          // RED
+          contxt.fillStyle = 'rgba(255, 5, 7, 0.7)';
+          contxt.fillText("PM        10:40", ((gifWidth/5.5) - 3), ((gifHeight/1.3) + 1));
+          // CYAN
+          contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
+          contxt.fillText("PM        10:40", ((gifWidth/5.5) + 3), ((gifHeight/1.3) - 1));
+          //WHITE
+          contxt.fillStyle = fontColor;
+          contxt.fillText("PM        10:40", gifWidth/5.5, gifHeight/1.3);
 
-          ctxRed.fillStyle = 'rgba(255, 5, 7, 0.2)';
-          ctxRed.fillRect(2, 3, gifWidth, gifHeight);
+          // RED
+          contxt.fillStyle = 'rgba(255, 5, 7, 0.7)'
+          contxt.fillText("MAR. 11 1986", ((gifWidth/5.5) - 3), ((gifHeight/1.2) + 1));
+          // CYAN
+          contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
+          contxt.fillText("MAR. 11 1986", ((gifWidth/5.5) + 3), ((gifHeight/1.2) - 1));
+          // WHITE
+          contxt.fillStyle = fontColor;
+          contxt.fillText("MAR. 11 1986", gifWidth/5.5, gifHeight/1.2);
 
-          ctxCyan.fillStyle = 'rgba(4, 252, 254, 0.2)';
-          ctxCyan.fillRect(-3, -2, gifWidth, gifHeight);
+          // Screen Shift
+          // RED
+          contxt.fillStyle = 'rgba(255, 50, 70, 0.1)';
+          contxt.fillRect(15, 0, gifWidth, gifHeight);
+          // CYAN
+          contxt.fillStyle = 'rgba(40, 252, 254, 0.1)';
+          contxt.fillRect(-16, 0, gifWidth, gifHeight);
+          //YELLOW
+          contxt.fillStyle = 'rgba(250, 252, 21, 0.1)';
+          contxt.fillRect(0, 0, 5, gifHeight);
 
-          // contxt.rect(0, 0, gifWidth, gifHeight);
+          contxt.rect(0, 0, gifWidth, gifHeight);
+          
 
           if (saveRenderingContexts) {
             renderingContextsToSave.push(context.getImageData(0, 0, gifWidth, gifHeight));
@@ -1340,7 +1395,7 @@ screenShot = {
           if (text) {
             context.font = font;
             context.fillStyle = fontColor;
-            context.textAlign = textAlign;
+            context.textAlign = "center";
             context.textBaseline = textBaseline;
             context.fillText(text, textXCoordinate, textYCoordinate);
             //something I added to help view the text more clearly
