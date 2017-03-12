@@ -309,7 +309,9 @@ defaultOptions = {
   },
   'saveRenderingContexts': false,
   'savedRenderingContexts': [],
-  'crossOrigin': 'Anonymous'
+  'crossOrigin': 'Anonymous',
+  'instaFilter': null,
+  'vhsFilter': null
 };
 isSupported = function () {
   return error.isValid();
@@ -1307,106 +1309,111 @@ screenShot = {
           var contxt = canvas.getContext('2d');
 
           // Instagram Filter
-          // var radGrad = contxt.createRadialGradient(120, 50, 10, 238, 20, 300);
-          // radGrad.addColorStop(0, 'rgba(241, 246, 0, 0.25)');
-          // radGrad.addColorStop(0.2, 'rgba(255,165,0, 0.25)');
-          // radGrad.addColorStop(1, 'rgba(252, 0, 0, 0.25)');
-          // contxt.fillStyle = radGrad;
-          // contxt.fillRect(0, 0, gifWidth, gifHeight);
-
-          // VHS Filter
-          contxt.globalAlpha = 0.6;
-          contxt.globalCompositeOperation = 'xor';
-          contxt.font = "16px Arial";
-
-          var grad = contxt.createLinearGradient(0, 0, 0, gifHeight);
-          grad.addColorStop(0, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(0.05, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.1, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(.15, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.2, 'rgba(0, 0, 0,.1)');
-          grad.addColorStop(.25, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.3, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(.35, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.4, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(.45, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.5, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(.55, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.6, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(.65, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.7, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(.75, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.8, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(.85, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(.9, 'rgba(0, 0, 0, .1)');
-          grad.addColorStop(.95, 'rgba(254, 255, 253, .1)');
-          grad.addColorStop(1, 'rgba(0, 0, 0, .1)');
-          contxt.fillStyle = grad;
-          contxt.fillRect(0, 0, gifWidth, gifHeight);
-
-          // TEXT TEMPLATE
-
-          var date = new Date();
-          var dateArr = date.toString();
-          var dateList = dateArr.split(" ");
-          
-          var time = {
-            "amPm": "AM",
-            "month": dateList[1].toUpperCase(),
-            "day": dateList[2],
-            "hours": date.getHours(),
-            "minutes": dateList[4].split(":")[1],
-            "seconds": dateList[4].split(":")[2]
-          };
-
-          if (time.hours > 12) {
-            time.hours -= 12
-            time.amPm = "PM"
+          if (options.instaFilter === true) {
+            var radGrad = contxt.createRadialGradient(120, 50, 10, 238, 20, 300);
+            radGrad.addColorStop(0, 'rgba(241, 246, 0, 0.25)');
+            radGrad.addColorStop(0.2, 'rgba(255,165,0, 0.25)');
+            radGrad.addColorStop(1, 'rgba(252, 0, 0, 0.25)');
+            contxt.fillStyle = radGrad;
+            contxt.fillRect(0, 0, gifWidth, gifHeight);
           }
 
-          // RED
-          contxt.fillStyle = 'rgba(255, 5, 7, 0.7)';
-          contxt.fillText("PLAY", ((gifWidth/1.2) - 3), gifHeight/9);
-          // CYAN
-          contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
-          contxt.fillText("PLAY", ((gifWidth/1.2) + 3), ((gifHeight/9) - 1));
-          // WHITE
-          contxt.fillStyle = fontColor;
-          contxt.fillText("PLAY", gifWidth/1.2, gifHeight/9);
+          // VHS Filter
+          if (options.vhsFilter === true) {
+            contxt.globalAlpha = 0.6;
+            contxt.globalCompositeOperation = 'xor';
+            contxt.font = "16px Arial";
 
-          // RED
-          contxt.fillStyle = 'rgba(255, 5, 7, 0.7)';
-          contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, ((gifWidth/5.5) - 3), ((gifHeight/1.3) + 1));
-          // CYAN
-          contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
-          contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, ((gifWidth/5.5) + 3), ((gifHeight/1.3) - 1));
-          //WHITE
-          contxt.fillStyle = fontColor;
-          contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, gifWidth/5.5, gifHeight/1.3);
+            var grad = contxt.createLinearGradient(0, 0, 0, gifHeight);
+            grad.addColorStop(0, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(0.05, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.1, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(.15, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.2, 'rgba(0, 0, 0,.1)');
+            grad.addColorStop(.25, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.3, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(.35, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.4, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(.45, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.5, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(.55, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.6, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(.65, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.7, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(.75, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.8, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(.85, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(.9, 'rgba(0, 0, 0, .1)');
+            grad.addColorStop(.95, 'rgba(254, 255, 253, .1)');
+            grad.addColorStop(1, 'rgba(0, 0, 0, .1)');
+            contxt.fillStyle = grad;
+            contxt.fillRect(0, 0, gifWidth, gifHeight);
 
-          // RED
-          contxt.fillStyle = 'rgba(255, 5, 7, 0.7)'
-          contxt.fillText(time.month + ". " + time.day + " 1986", ((gifWidth/5.5) - 3), ((gifHeight/1.2) + 1));
-          // CYAN
-          contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
-          contxt.fillText(time.month + ". " + time.day + " 1986", ((gifWidth/5.5) + 3), ((gifHeight/1.2) - 1));
-          // WHITE
-          contxt.fillStyle = fontColor;
-          contxt.fillText(time.month + ". " + time.day + " 1986", gifWidth/5.5, gifHeight/1.2);
+            // TEXT TEMPLATE
+            var date = new Date();
+            var dateArr = date.toString();
+            var dateList = dateArr.split(" ");
+            
+            var time = {
+              "amPm": "AM",
+              "month": dateList[1].toUpperCase(),
+              "day": dateList[2],
+              "hours": date.getHours(),
+              "minutes": dateList[4].split(":")[1],
+              "seconds": dateList[4].split(":")[2]
+            };
 
-          // Screen Shift
-          // RED
-          contxt.fillStyle = 'rgba(255, 50, 70, 0.1)';
-          contxt.fillRect(15, 0, gifWidth, gifHeight);
-          // CYAN
-          contxt.fillStyle = 'rgba(40, 252, 254, 0.1)';
-          contxt.fillRect(-16, 0, gifWidth, gifHeight);
-          //YELLOW
-          contxt.fillStyle = 'rgba(250, 252, 21, 0.1)';
-          contxt.fillRect(0, 0, 5, gifHeight);
+            if (time.hours > 12) {
+              time.hours -= 12
+              time.amPm = "PM"
+            }
 
-          contxt.rect(0, 0, gifWidth, gifHeight);
+            // RED
+            contxt.fillStyle = 'rgba(255, 5, 7, 0.7)';
+            contxt.fillText("PLAY", ((gifWidth/1.2) - 3), gifHeight/9);
+            // CYAN
+            contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
+            contxt.fillText("PLAY", ((gifWidth/1.2) + 3), ((gifHeight/9) - 1));
+            // WHITE
+            contxt.fillStyle = fontColor;
+            contxt.fillText("PLAY", gifWidth/1.2, gifHeight/9);
 
+            // RED
+            contxt.fillStyle = 'rgba(255, 5, 7, 0.7)';
+            contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, ((gifWidth/5.5) - 3), ((gifHeight/1.2) + 1));
+            // CYAN
+            contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
+            contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, ((gifWidth/5.5) + 3), ((gifHeight/1.2) - 1));
+            //WHITE
+            contxt.fillStyle = fontColor;
+            contxt.fillText(time.amPm + "     " + time.hours + ":" + time.minutes + ":" + time.seconds, gifWidth/5.5, gifHeight/1.2);
+
+            // RED
+            contxt.fillStyle = 'rgba(255, 5, 7, 0.7)'
+            contxt.fillText(time.month + ". " + time.day + " 1986", ((gifWidth/5.5) - 3), ((gifHeight/1.1) + 1));
+            // CYAN
+            contxt.fillStyle = 'rgba(4, 252, 254, 0.5)';
+            contxt.fillText(time.month + ". " + time.day + " 1986", ((gifWidth/5.5) + 3), ((gifHeight/1.1) - 1));
+            // WHITE
+            contxt.fillStyle = fontColor;
+            contxt.fillText(time.month + ". " + time.day + " 1986", gifWidth/5.5, gifHeight/1.1);
+
+            // Screen Shift
+            // RED
+            contxt.fillStyle = 'rgba(255, 50, 70, 0.1)';
+            contxt.fillRect(15, 0, gifWidth, gifHeight);
+            // CYAN
+            contxt.fillStyle = 'rgba(40, 252, 254, 0.1)';
+            contxt.fillRect(-16, 0, gifWidth, gifHeight);
+            // YELLOW
+            contxt.fillStyle = 'rgba(250, 252, 21, 0.2)';
+            contxt.fillRect(0, 0, 5, gifHeight);
+            // ORANGE
+            contxt.fillStyle = 'rgba(255 ,165 , 0, 0.1)';
+            contxt.fillRect(0, 0, gifWidth, gifHeight);
+
+            contxt.rect(0, 0, gifWidth, gifHeight);
+          }
           if (saveRenderingContexts) {
             renderingContextsToSave.push(context.getImageData(0, 0, gifWidth, gifHeight));
           }

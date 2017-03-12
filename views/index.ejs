@@ -3,16 +3,27 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Gifenger</title>
+
+		<title>
+			Gifme
+		</title>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<link rel="stylesheet" type="text/css" href="stylesheets/dependencies/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 	</head>
 	
 	<body>
+
 		<div>
+			<nav class="navbar navbar-inverse bg-inverse">Gifme</nav>
+		</div>
+		
+		<div class="container squeeze">
+			
+
 			<!-- GIF CONTENT -->
 			<div>
 				<video id="vid" class="video-stream size" autoplay></video>
@@ -25,34 +36,48 @@
 
 			<!-- USER INTERACTIONS -->
 			<div>
-				<label for="text">Text:</label>
-				<input name="text" id="text" type="text" placeholder="Add text here..." size="20">
-			</div>
-
-			<div>
-				<button>Filter</button>
-			</div>
-
-			<div>
-				<button id="edit-btn">Edit</button>
-			</div>
-
-			<br />
-
-			<div>
-				<button id="create-gif-btn">Record GIF</button>
-			</div>
-
-			<br />
-
-			<div>
-				<ul class="gif-display size hidden"></ul>
 				
-				<a href="http://www.facebook.com/sharer.php?u=https://google.com" target="_blank">
-        	<img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-    		</a>
-			</div>
+				<div>
+					<label for="text">Text:</label>
+					<input name="text" id="text" type="text" placeholder="Add a brief message..." size="28" maxlength="18">
+				</div>
 
+				<br />
+
+				<div>
+					<div class="btn-group" data-toggle="buttons">
+
+				    <input id="insta" name="state-d" type="radio">
+				    <label for="insta" onclick="">Insta-Filter</label>
+
+				    <input id="none" name="state-d" type="radio" checked="checked">
+				    <label for="none" onclick="">None</label>
+
+				    <input id="vhs" name="state-d" type="radio">
+				    <label for="vhs" onclick="">VHS-Filter</label>
+
+					</div>
+				</div>
+
+				<br />
+				
+				<div>
+					<label for="duration">Duration</label>
+					<input id="duration" type="range"  value="" min="0" max="30" />
+				</div>
+
+				<br />
+
+				<div>
+					<button id="create-gif-btn">Record GIF</button>
+				</div>
+
+				<br />
+
+				<div>
+					<ul class="gif-display size hidden"></ul>
+				</div>
+			</div>
 			
 		
 
@@ -65,14 +90,11 @@
 		  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 		  crossorigin="anonymous">  	
 		</script>
-
+	  <script src="javascripts/dependencies/bootstrap.js"></script>
 		<script src="javascripts/dependencies/gifshot.js"></script>
-    <!-- <script src="javascripts/dependencies/prism.min.js"></script> -->
     <script src="javascripts/dependencies/esprima.min.js"></script>
-    <!-- <script src="javascripts/dependencies/escodegen.min.js"></script> -->
     <script src="javascripts/dependencies/lodash.min.js"></script>
     <script src="javascripts/dependencies/classList.js"></script>
 	  <script src="javascripts/main.js"></script>
-	  <!-- <script src="javascripts/test.js"></script> -->
 	</body>
 </html>

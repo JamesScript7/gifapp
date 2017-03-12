@@ -7,9 +7,11 @@
 			  'gifHeight': '225',
 			  'numFrames': '24',
 			  'text': text.value,
-			  'fontSize': '32px',
+			  'fontSize': '24px',
 			  'fontFamily': 'Arial',
-			  'fontColor': '#FFFFFF'
+			  'fontColor': '#FFFFFF',
+			  'instaFilter': false,
+			  'vhsFilter': true
 			}
 		},
 	// Video stream and GIF processing
@@ -18,6 +20,9 @@
 	  videoStream = document.querySelector('.video-stream'),
 	  progressBar = document.querySelector('progress'),
 	  passedOptions;
+
+	  console.log(getSelectedOptions()['instaFilter']);
+	  console.log(getSelectedOptions()['vhsFilter']);
 
     navigator.mediaDevices.getUserMedia({
       video: {

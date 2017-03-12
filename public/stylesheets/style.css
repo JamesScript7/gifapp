@@ -12,22 +12,6 @@ a {
   color: #00B7FF;
 }
 
-.insta-filt {
-  filter: sepia(100%);
-}
-
-#share-buttons img {
-width: 35px;
-padding: 5px;
-border: 0;
-box-shadow: 0;
-display: inline;
-}
-
-.sepia-filter {
-  filter: sepia(100%);
-}
-
 progress {
 	float: none;
 	width: 300px;
@@ -42,25 +26,34 @@ progress::-webkit-progress-value {
     background: #5cb85c;
 }
 progress:not([value])::-webkit-progress-bar {
-  background:#fdd;
+  background: #fdd;
 }
+
+.squeeze {
+  width: 350px;
+}
+
+.hidden {
+  display: none;
+}
+
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+
 
 .size {
 	width: 100%;
   max-width: 300px;	
 }
 
-.gif-display {
-}
-
-.hidden {
-	display: none;
-}
-
-
 #create-gif-btn {
-	background-color: #4CAF50; /* Green */
-  border: 1px solid green;
+	background-color: #ff3232;
+  border: 1px solid #7f0000;
   border-radius: 5px;
   color: white;
   padding: 15px 32px;
