@@ -20,6 +20,8 @@
 	  gifDisplay = document.querySelector('.gif-display'),
 	  videoStream = document.querySelector('.video-stream'),
 	  progressBar = document.querySelector('progress'),
+	  removeButton = document.getElementById('remove-btn'),
+	  gifArray = [],
 	  passedOptions;
 
     navigator.mediaDevices.getUserMedia({
@@ -53,14 +55,14 @@
 						var newList = document.createElement('li');
 						newList.appendChild(animatedImage);
 
-						shareButton = document.createElement('button');
-						shareButton.setAttribute('id', 'share-btn');
-						shareButton.innerHTML = "Share";
-						newList.appendChild(shareButton);
+						gifArray.push(newList);
 
-						gifDisplay.appendChild(newList);
+						for (var i = (gifArray.length - 1); i >= 0; i--) {
+							gifDisplay.appendChild(gifArray[i]);
+						}
 
 						gifDisplay.classList.remove('hidden');
+
 					} else {
 						console.log('obj.error', obj.error);
 						console.log('obj.errorCode', obj.errorCode);
@@ -71,11 +73,20 @@
 
 		};
 
+	removeButton.addEventListener('click', function() {
+		gifArray = [];
+
+		for (var i = (gifArray.length - 1); i >= 0; i--) {
+			gifDisplay.appendChild(gifArray[i]);
+		}
+	})
+
+
+
 	bindEvents();
 
 	$('[type=radio]').change(function(e) {
 		var select = e.target.id;
-
 		switch (select) {
 			case 'insta':
 				getSelectedOptions = function() {
@@ -124,7 +135,4 @@
 		}
 		
 	});
-
-
-
 }(window, document));

@@ -18,6 +18,11 @@
 	<body>
 
 		<div class="container squeeze">
+			<nav class="fixed-title text-center" role="navigation">
+        <span class="options-button-group">
+          
+        </span>
+      </nav>
 			
 
 			<!-- GIF CONTENT -->
@@ -35,24 +40,18 @@
 				
 				<div>
 					<label for="text">Text:</label>
-					<input name="text" id="text" type="text" placeholder="Add a brief message..." size="28" maxlength="18">
+					<input name="text" id="text" type="text" placeholder="Add a brief message..." size="28" maxlength="20">
 				</div>
 
-				<br />
+				<div class="btn-group radio-btns" data-toggle="buttons">
+			    <input id="insta" name="filter" type="radio">
+			    <label for="insta">Insta-Filter</label>
 
-				<div>
-					<div class="btn-group" data-toggle="buttons">
+			    <input id="none" name="filter" type="radio">
+			    <label for="none">None</label>
 
-				    <input id="insta" name="filter" type="radio">
-				    <label for="insta">Insta-Filter</label>
-
-				    <input id="none" name="filter" type="radio">
-				    <label for="none">None</label>
-
-				    <input id="vhs" name="filter" type="radio">
-				    <label for="vhs">VHS-Filter</label>
-
-					</div>
+			    <input id="vhs" name="filter" type="radio">
+			    <label for="vhs">VHS-Filter</label>
 				</div>
 
 				<br />
@@ -62,6 +61,10 @@
 				</div>
 
 				<br />
+
+				<div>
+					<button id="remove-btn">Remove GIFS</button>
+				</div>
 
 				<div>
 					<ul class="gif-display size hidden"></ul>

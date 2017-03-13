@@ -30,7 +30,7 @@ progress:not([value])::-webkit-progress-bar {
 }
 
 .squeeze {
-  width: 350px;
+  width: 400px;
 }
 
 .hidden {
@@ -42,7 +42,7 @@ progress:not([value])::-webkit-progress-bar {
   color: #9999FF;
 }
 
-#share-buttons img {
+#share-btn img {
 width: 35px;
 padding: 5px;
 border: 0;
@@ -50,6 +50,14 @@ box-shadow: 0;
 display: inline;
 }
 
+.radio-btns {
+
+}
+
+div ul.gif-display li {
+  list-style-type: none;
+  margin: 6px 0px;
+}
 
 .size {
 	width: 100%;
@@ -57,7 +65,7 @@ display: inline;
 }
 
 #create-gif-btn {
-	background-color: #ff3232;
+	background-color: #990000;
   border: 1px solid #7f0000;
   border-radius: 5px;
   color: white;
@@ -65,7 +73,7 @@ display: inline;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
 	width: 300px;
 }

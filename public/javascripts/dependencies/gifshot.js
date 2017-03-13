@@ -1304,8 +1304,6 @@ screenShot = {
           var data;
           var rgba;
           var isBlackFrame;
-
-          // Filter Zone
           var contxt = canvas.getContext('2d');
 
           // Instagram Filter
@@ -1329,27 +1327,11 @@ screenShot = {
 
             // Use For loop to increment and modulo to alternate?
             var grad = contxt.createLinearGradient(0, 0, 0, gifHeight);
-            grad.addColorStop(0, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(0.05, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.1, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(.15, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.2, 'rgba(0, 0, 0,.1)');
-            grad.addColorStop(.25, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.3, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(.35, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.4, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(.45, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.5, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(.55, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.6, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(.65, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.7, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(.75, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.8, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(.85, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(.9, 'rgba(0, 0, 0, .1)');
-            grad.addColorStop(.95, 'rgba(254, 255, 253, .1)');
-            grad.addColorStop(1, 'rgba(0, 0, 0, .1)');
+
+            for (var i = 0; i <= 100; i++) {
+              grad.addColorStop((i / 100), ((i % 2) ? 'rgba(254, 255, 253, .1)' : 'rgba(0, 0, 0, .1)'));
+            }
+
             contxt.fillStyle = grad;
             contxt.fillRect(0, 0, gifWidth, gifHeight);
 
@@ -1427,7 +1409,7 @@ screenShot = {
             context.textAlign = "center";
             context.textBaseline = textBaseline;
             context.fillText(text, textXCoordinate, textYCoordinate);
-            //something I added to help view the text more clearly
+            // Helps make the text more legible
             context.lineWidth = "2";
             context.strokeText(text, textXCoordinate, textYCoordinate);              
           }
