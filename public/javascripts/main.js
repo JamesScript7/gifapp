@@ -50,6 +50,14 @@
 							animatedImage = document.createElement('img');
 							animatedImage.src = image;
 
+						$.ajax({
+							type: "POST",
+							url: '/gif',
+							data: data,
+							success: success,
+							dataType: dataType
+						});
+
 						progressBar.classList.add('hidden');
 
 						var newList = document.createElement('li');
@@ -72,15 +80,6 @@
 			}, false);
 
 		};
-
-	removeButton.addEventListener('click', function() {
-		gifArray = [];
-
-		for (var i = (gifArray.length - 1); i >= 0; i--) {
-			gifDisplay.appendChild(gifArray[i]);
-		}
-	})
-
 
 
 	bindEvents();

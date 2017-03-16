@@ -15,7 +15,7 @@ a {
 progress {
 	float: none;
 	width: 300px;
-	border: none;
+  border: none;
 }
 
 /* Chrome */
@@ -29,17 +29,22 @@ progress:not([value])::-webkit-progress-bar {
   background: #fdd;
 }
 
+
+@media screen and (max-width:320px) {
+  
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+  
+}
+
+
 .squeeze {
   width: 400px;
 }
 
 .hidden {
   display: none;
-}
-
-.dark {
-  background-color: #282828;
-  color: #9999FF;
 }
 
 #share-btn img {
@@ -60,12 +65,12 @@ div ul.gif-display li {
 }
 
 .size {
-	width: 100%;
-  max-width: 300px;	
+  width: 100%;
+  max-width: 300px; 
 }
 
 #create-gif-btn {
-	background-color: #990000;
+  background-color: #990000;
   border: 1px solid #7f0000;
   border-radius: 5px;
   color: white;
@@ -75,5 +80,24 @@ div ul.gif-display li {
   display: inline-block;
   font-size: 20px;
   cursor: pointer;
-	width: 300px;
+  width: 300px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

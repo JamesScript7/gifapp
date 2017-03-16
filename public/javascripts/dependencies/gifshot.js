@@ -1392,7 +1392,7 @@ screenShot = {
             contxt.fillStyle = 'rgba(40, 252, 254, 0.1)';
             contxt.fillRect(-16, 0, gifWidth, gifHeight);
             // YELLOW
-            contxt.fillStyle = 'rgba(250, 252, 21, 0.2)';
+            contxt.fillStyle = 'rgba(250, 252, 21, 0.1)';
             contxt.fillRect(0, 0, 5, gifHeight);
             // ORANGE
             contxt.fillStyle = 'rgba(255 ,165 , 0, 0.1)';
