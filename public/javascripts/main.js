@@ -4,13 +4,12 @@
 
 		getSelectedOptions = function() {
 			return {
-				'gifWidth': '300',
+				'gifWidth': '250',
 			  'gifHeight': '225',
 			  'numFrames': '24',
 			  'text': text.value,
 			  'fontSize': '24px',
 			  'fontFamily': 'Arial',
-			  'fontColor': '#FFFFFF',
 			  'instaFilter': false,
 			  'vhsFilter': false
 			}
@@ -50,14 +49,6 @@
 							animatedImage = document.createElement('img');
 							animatedImage.src = image;
 
-						$.ajax({
-							type: "POST",
-							url: '/gif',
-							data: data,
-							success: success,
-							dataType: dataType
-						});
-
 						progressBar.classList.add('hidden');
 
 						var newList = document.createElement('li');
@@ -90,13 +81,12 @@
 			case 'insta':
 				getSelectedOptions = function() {
 					return {
-						'gifWidth': '300',
+						'gifWidth': '250',
 					  'gifHeight': '225',
 					  'numFrames': '24',
 					  'text': text.value,
 					  'fontSize': '24px',
 					  'fontFamily': 'Arial',
-					  'fontColor': '#FFFFFF',
 					  'instaFilter': true,
 					  'vhsFilter': false
 					}
@@ -105,13 +95,12 @@
 			case 'vhs':
 				getSelectedOptions = function() {
 					return {
-						'gifWidth': '300',
+						'gifWidth': '250',
 					  'gifHeight': '225',
 					  'numFrames': '24',
 					  'text': text.value,
 					  'fontSize': '24px',
 					  'fontFamily': 'Arial',
-					  'fontColor': '#FFFFFF',
 					  'instaFilter': false,
 					  'vhsFilter': true
 					}
@@ -120,13 +109,12 @@
 			default:
 				getSelectedOptions = function() {
 						return {
-							'gifWidth': '300',
+							'gifWidth': '250',
 						  'gifHeight': '225',
 						  'numFrames': '24',
 						  'text': text.value,
 						  'fontSize': '24px',
 						  'fontFamily': 'Arial',
-						  'fontColor': '#FFFFFF',
 						  'instaFilter': false,
 						  'vhsFilter': false
 						}

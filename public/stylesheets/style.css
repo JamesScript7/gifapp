@@ -2,20 +2,11 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+  background-color: snow;
 }
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
-progress {
-	float: none;
-	width: 300px;
-  border: none;
 }
 
 /* Chrome */
@@ -29,18 +20,62 @@ progress:not([value])::-webkit-progress-bar {
   background: #fdd;
 }
 
-
-@media screen and (max-width:320px) {
-  
+progress {
+	float: none;
+	width: 275px;
+  border: none;
 }
 
-@media screen and (min-width: 320px) and (max-width: 640px) {
-  
+@media screen and (max-width: 550px) {
+  .container {
+    width: 100%;
+  }
+  .size {
+    max-width: 275px;
+  }
+
+    div ul.gif-display {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  div ul.gif-display li {
+    list-style-type: none;
+    margin: 2px;
+    padding: 2px;
+  }
 }
 
+@media screen and (min-width: 550px) {
+  .container {
+    width: 100%;
+  }
+  .size {
+    max-width: 500px
+  }
 
-.squeeze {
-  width: 400px;
+  .gif-box {
+    overflow-x: scroll;
+  }
+
+  div ul.gif-display {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    justify-content: flex-start;
+  }
+
+  div ul.gif-display li {
+    list-style-type: none;
+    margin: 2px;
+    padding: 2px
+  }
 }
 
 .hidden {
@@ -53,20 +88,6 @@ padding: 5px;
 border: 0;
 box-shadow: 0;
 display: inline;
-}
-
-.radio-btns {
-
-}
-
-div ul.gif-display li {
-  list-style-type: none;
-  margin: 6px 0px;
-}
-
-.size {
-  width: 100%;
-  max-width: 300px; 
 }
 
 #create-gif-btn {
@@ -82,8 +103,6 @@ div ul.gif-display li {
   cursor: pointer;
   width: 300px;
 }
-
-
 
 
 
