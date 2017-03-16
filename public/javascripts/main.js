@@ -25,10 +25,8 @@
 	  passedOptions;
 
     navigator.mediaDevices.getUserMedia({
-      video: {
-         width: getSelectedOptions()['gifWidth'],
-          height: getSelectedOptions()['gifHeight']
-      	}
+      audio: false,
+      video: true
     }).then(function success(stream) {
       var video = videoStream;
       video.src = window.URL.createObjectURL(stream) || stream;

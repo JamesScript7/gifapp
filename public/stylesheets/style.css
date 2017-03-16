@@ -6,7 +6,16 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: snow;
+  background-color: #F8F8F8;
+}
+
+p {
+  margin: 2px;
+}
+
+hr {
+  margin-top: 6px;
+  margin-bottom: 0px;
 }
 
 /* Chrome */
@@ -26,9 +35,13 @@ progress {
   border: none;
 }
 
+.hidden {
+  display: none;
+}
+
 @media screen and (max-width: 550px) {
   .size {
-    max-width: 275px;
+    max-width: 285px;
   }
 
   div ul.gif-display {
@@ -42,11 +55,10 @@ progress {
 
   div ul.gif-display li {
     list-style-type: none;
-    margin-top: 10px;
+    margin-top: 6px;
     width: 100%;
     text-align: center;
   }
-
 }
 
 @media screen and (min-width: 550px) {
@@ -55,7 +67,7 @@ progress {
   }
 
   .size {
-    max-width: 500px
+    max-width: 385px
   }
 
   .gif-box {
@@ -82,9 +94,28 @@ progress {
 
   div ul.gif-display li {
     list-style-type: none;
-    margin-top: 10px;
-    padding: 4px
+    margin-top: 6px;
+    padding-left: 6px;
+    padding-right: 4px;
   }
+}
+
+div ul.gif-display {
+  background-color: #F0F0F0;
+}
+
+#create-gif-btn {
+  background-color: #333399;
+  border: 1px solid #330066;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100%;
 }
 
 .wrapper {
@@ -97,32 +128,44 @@ progress {
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
 
+  margin-top: 45px;
   text-align: center;
   justify-content: center;
 }
 
-
-
-
-
-
-.hidden {
-  display: none;
-}
-
-#create-gif-btn {
-  background-color: #990000;
-  border: 1px solid #7f0000;
-  border-radius: 5px;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  cursor: pointer;
+div.nav-area ul {
+  list-style-type: none;
+  background-color: #333399;
   width: 100%;
+  position: fixed;
+  margin-bottom: 0px;
 }
+
+div.nav-area ul li {
+  color: white;
+  float: left;
+  display: block;
+  padding: 6px;
+}
+
+div.nav-area ul li a {
+  font-size: 20px;
+  color: snow;
+  text-decoration: none;
+}
+
+div.right .text-area,
+div.right .btn-group,
+div.right .create-btn {
+  padding: 3px;
+}
+
+div#bar {
+  text-align: center;
+}
+
+
+
 
 
 

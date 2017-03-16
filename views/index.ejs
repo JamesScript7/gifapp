@@ -4,26 +4,25 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>
-			Gifme
-		</title>
+		<title>GIFme</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<link rel="stylesheet" type="text/css" href="stylesheets/dependencies/bootstrap.css">
 
+		<link rel="stylesheet" type="text/css" href="stylesheets/dependencies/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 	</head>
 	
 	<body>
 
+		<div class="nav-area">
+			<ul>
+				<li>
+					<a href="/">GIFme</a>
+				</li>
+			</ul>
+		</div>
+
 		<div class="container">
-			<nav class="fixed-title text-center" role="navigation">
-        <span class="options-button-group">
-          
-        </span>
-      </nav>
-			
 
 			<!-- GIF CONTENT -->
 			<div class="wrapper">
@@ -37,13 +36,11 @@
 				<!-- USER INTERACTIONS -->
 				<div class="right">
 				
-					<div id="bar">
-					<p class="loading hidden"> Loading... </p>
-						<progress class="gifshot-progress-bar hidden" max="1" value="0"></progress>
-					</div>
 
-					<div>
-						<label for="text">Text:</label>
+					<div class="text-area">
+						<label for="text">
+							Text:
+						</label>
 						<input name="text" id="text" type="text" placeholder="Add a brief message..." size="24" maxlength="20">
 					</div>
 
@@ -51,26 +48,48 @@
 
 					<div class="btn-group radio-btns" data-toggle="buttons">
 				    <input id="insta" name="filter" type="radio">
-				    <label for="insta">Insta-Filter</label>
+				    <label for="insta">
+				    	Insta-Filter
+				    </label>
 
 				    <input id="none" name="filter" type="radio">
-				    <label for="none">None</label>
+				    <label for="none">
+				    	None
+				    </label>
 
 				    <input id="vhs" name="filter" type="radio">
-				    <label for="vhs">VHS-Filter</label>
+				    <label for="vhs">
+				    	VHS-Filter
+				    </label>
 					</div>
 
-					<div>
-							<button id="create-gif-btn">Record GIF</button>
+					<div class="create-btn">
+							<button id="create-gif-btn">
+								Record GIF
+							</button>
 					</div>
 				</div>
 
 			</div>
+
+			<hr />
 			
 			<!-- Where the GIFs will be displayed -->
 			<div class="gif-box">
+			
+					<div id="bar">
+						<div class="loading hidden">
+							<p>
+								Processing...
+							</p>
+						</div>
+
+						<progress class="gifshot-progress-bar hidden" max="1" value="0"></progress>
+					</div>
+
 				<ul class="gif-display hidden"></ul>
 			</div>
+
 		
 
 
