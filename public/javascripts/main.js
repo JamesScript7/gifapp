@@ -19,6 +19,7 @@
 	  gifDisplay = document.querySelector('.gif-display'),
 	  videoStream = document.querySelector('.video-stream'),
 	  progressBar = document.querySelector('progress'),
+	  loadingMsg = document.querySelector('.loading'),
 	  removeButton = document.getElementById('remove-btn'),
 	  gifArray = [],
 	  passedOptions;
@@ -38,6 +39,7 @@
 			createGif.addEventListener('click', function(e) {
 				passedOptions = _.merge(_.clone(getSelectedOptions()), {
 					'progressCallback': function(captureProgress) {
+						loadingMsg.classList.remove('hidden');
 						progressBar.classList.remove('hidden');
 						progressBar.value = captureProgress;
 					}
@@ -50,6 +52,7 @@
 							animatedImage.src = image;
 
 						progressBar.classList.add('hidden');
+						loadingMsg.classList.add('hidden');
 
 						var newList = document.createElement('li');
 						newList.appendChild(animatedImage);

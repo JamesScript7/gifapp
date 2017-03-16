@@ -17,7 +17,7 @@
 	
 	<body>
 
-		<div class="container squeeze">
+		<div class="container">
 			<nav class="fixed-title text-center" role="navigation">
         <span class="options-button-group">
           
@@ -26,51 +26,51 @@
 			
 
 			<!-- GIF CONTENT -->
-			<div>
-				<video id="vid" class="video-stream size" autoplay></video>
-			</div>
-			
-			<div id="bar">
-				<progress class="gifshot-progress-bar hidden" max="1" value="0"></progress>
-			</div>
+			<div class="wrapper">
 
+				<div class="left">
+					<div>
+						<video id="vid" class="video-stream size" autoplay></video>
+					</div>	
+				</div>
 
-			<!-- USER INTERACTIONS -->
-			<div>
+				<!-- USER INTERACTIONS -->
+				<div class="right">
 				
-				<div>
-					<label for="text">Text:</label>
-					<input name="text" id="text" type="text" placeholder="Add a brief message..." size="28" maxlength="20">
-				</div>
+					<div id="bar">
+					<p class="loading hidden"> Loading... </p>
+						<progress class="gifshot-progress-bar hidden" max="1" value="0"></progress>
+					</div>
 
-				<!-- FILTERS -->
+					<div>
+						<label for="text">Text:</label>
+						<input name="text" id="text" type="text" placeholder="Add a brief message..." size="24" maxlength="20">
+					</div>
 
-				<div class="btn-group radio-btns" data-toggle="buttons">
-			    <input id="insta" name="filter" type="radio">
-			    <label for="insta">Insta-Filter</label>
+					<!-- FILTERS -->
 
-			    <input id="none" name="filter" type="radio">
-			    <label for="none">None</label>
+					<div class="btn-group radio-btns" data-toggle="buttons">
+				    <input id="insta" name="filter" type="radio">
+				    <label for="insta">Insta-Filter</label>
 
-			    <input id="vhs" name="filter" type="radio">
-			    <label for="vhs">VHS-Filter</label>
-				</div>
+				    <input id="none" name="filter" type="radio">
+				    <label for="none">None</label>
 
-				<br />
+				    <input id="vhs" name="filter" type="radio">
+				    <label for="vhs">VHS-Filter</label>
+					</div>
 
-				<div>
-						<button id="create-gif-btn">Record GIF</button>
-				</div>
-
-				<br />
-				
-				<!-- Where the GIFs will be displayed -->
-				<div class="gif-box">
-					<ul class="gif-display hidden"></ul>
+					<div>
+							<button id="create-gif-btn">Record GIF</button>
+					</div>
 				</div>
 
 			</div>
 			
+			<!-- Where the GIFs will be displayed -->
+			<div class="gif-box">
+				<ul class="gif-display hidden"></ul>
+			</div>
 		
 
 
