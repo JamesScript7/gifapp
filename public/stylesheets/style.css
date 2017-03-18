@@ -6,7 +6,7 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #F8F8F8;
+  background-color: #F0F0F0;
 }
 
 p {
@@ -14,8 +14,9 @@ p {
 }
 
 hr {
-  margin-top: 6px;
-  margin-bottom: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top: 2px solid #ccc;
 }
 
 /* Chrome */
@@ -41,7 +42,7 @@ progress {
 
 @media screen and (max-width: 550px) {
   .size {
-    max-width: 285px;
+    max-width: 250px;
   }
 
   div ul.gif-display {
@@ -59,6 +60,14 @@ progress {
     width: 100%;
     text-align: center;
   }
+
+  div.upload-box {
+    display: none;
+    width: 0px;
+    height: 0px;
+    margin: 0 auto;
+    border: none;
+  }
 }
 
 @media screen and (min-width: 550px) {
@@ -67,7 +76,7 @@ progress {
   }
 
   .size {
-    max-width: 385px
+    max-width: 275px;
   }
 
   .gif-box {
@@ -90,6 +99,8 @@ progress {
     display: flex;
     -webkit-flex-flow: row;
     justify-content: flex-start;
+
+    margin-top: 70px;
   }
 
   div ul.gif-display li {
@@ -98,10 +109,25 @@ progress {
     padding-left: 6px;
     padding-right: 4px;
   }
+
+  div.upload-box {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+ 
+    justify-content: center;
+    align-items: center;
+
+    width: 90px;
+    height: 90px;
+    margin: 10px auto;
+    border: 2px dashed grey;
+  }
 }
 
 div ul.gif-display {
-  background-color: #F0F0F0;
+  background-color: #E8E8E8;
 }
 
 #create-gif-btn {
